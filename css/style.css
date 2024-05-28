@@ -1,0 +1,47 @@
+.body{
+    background-color: black;
+}
+.navbar{
+    background-color: black;
+}
+.navbar-brand{
+    color: white;
+}
+.navbar-nav .nav-link{
+    color: white;
+}
+.search-icon-btn{
+    background-color: red;
+    color:white;
+   
+}
+.menu-title{
+    color:white;
+    margin: 20px;
+}
+.card-body{
+    background-color: white;
+}
+.buy-button{
+    background-color: #343a40;
+    color: white;
+    padding: 10px 100px;
+    font-weight: 10px 15px;
+}
+
+.sell-badge {
+  position: absolute;
+
+  padding: 3px 20px;
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+}
+.new-badge {
+    position: absolute;
+  
+    padding: 3px 20px;
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+  }

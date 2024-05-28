@@ -1,0 +1,149 @@
+import React from 'react';
+import { Navbar, Nav, Form, FormControl, Button, Container, Carousel, Card, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+
+const PizzaHouse = () => {
+  return (
+    <div style={{ backgroundColor: 'black', color: 'white' }}>
+      <Container>
+        <Navbar expand="lg">
+          <Container fluid>
+            <Navbar.Brand href="#">Pizza House</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarSupportedContent" />
+            <Navbar.Collapse id="navbarSupportedContent">
+              <Nav className="me-auto mb-2 mb-lg-0">
+                <Nav.Link href="#" aria-current="page">Home</Nav.Link>
+                <Nav.Link href="#">Link</Nav.Link>
+                <Nav.Link href="#">About Us</Nav.Link>
+                <Nav.Link href="#">Contact</Nav.Link>
+              </Nav>
+              <Form className="d-flex" role="search">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button variant="outline-success" className="search-icon-btn">
+                  <i className="fas fa-search"></i>
+                </Button>
+              </Form>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </Container>
+
+      <Container fluid>
+        <Carousel id="carouselExampleCaptions">
+          <Carousel.Item>
+            <img src="asset/images/pizza1.jpg" className="d-block w-100" alt="..." />
+            <Carousel.Caption>
+              <h5>Naepolitan Pizza</h5>
+              <p>If you are looking a traditional Italian pizza the Nepolitan is the best option!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src="asset/images/pizza2.jpg" className="d-block w-100" alt="..." />
+            <Carousel.Caption>
+              <h5>Okonomiyaki Pizza</h5>
+              <p>If you are looking a traditional Japanese pizza the Okonomiyaki is the best option!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src="asset/images/pizza3.jpg" className="d-block w-100" alt="" />
+            <Carousel.Caption>
+              <h5>Zapiekanka Pizza</h5>
+              <p>If you are looking a traditional Polish pizza the Zapiekanka Pizza is the best option!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src="asset/images/pizza4.jpg" className="d-block w-100" alt="..." />
+            <Carousel.Caption>
+              <h5>Bulgogi Pizza</h5>
+              <p>If you are looking a traditional Korean pizza the Bulgogi Pizza is the best option!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src="asset/images/pizza5.jpg" className="d-block w-100" alt="..." />
+            <Carousel.Caption>
+              <h5>Deep-Dish Pizza</h5>
+              <p>If you are looking a traditional American pizza the Deep-Dish is the best option!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </Container>
+
+      <Container>
+        <div className="menu">
+          <Row>
+            <div className="menu-title">
+              <h1>Our Menu</h1>
+            </div>
+            {[
+              { imgSrc: 'asset/images/menu1.jpg', title: 'Margherita Pizza', originalPrice: '$40.00', salePrice: '$24.00', badge: 'Sale' },
+              { imgSrc: 'asset/images/menu1.jpg', title: 'Margherita Pizza', price: '$25' },
+              { imgSrc: 'asset/images/menu1.jpg', title: 'Margherita Pizza', price: '$30', badge: 'New' },
+              { imgSrc: 'asset/images/menu1.jpg', title: 'Margherita Pizza', originalPrice: '$50', salePrice: '$30', badge: 'Sale' },
+            ].map((item, index) => (
+              <Col md={3} key={index}>
+                <Card>
+                  {item.badge && <span className="sell-badge">{item.badge}</span>}
+                  <Card.Img variant="top" src={item.imgSrc} />
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <p>
+                      {item.originalPrice && <del>{item.originalPrice}</del>}
+                      <span className="text-warning">{item.salePrice || item.price}</span>
+                    </p>
+                    <Button variant="primary" className="buy-button">Buy</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+
+          <Container className="mt-5">
+            <h2 style={{ textAlign: 'center', color: 'white' }}>Book Your Table</h2>
+            <Form>
+              <Row>
+                <Col md={4}>
+                  <Form.Group>
+                    <Form.Control type="text" id="inputName" placeholder="Your Name*" />
+                  </Form.Group>
+                </Col>
+                <Col md={4}>
+                  <Form.Group>
+                    <Form.Control type="email" id="inputEmail" placeholder="Your Email*" />
+                  </Form.Group>
+                </Col>
+                <Col md={4}>
+                  <Form.Group>
+                    <Form.Select aria-label="Default select example">
+                      <option>Select a service</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </Form.Select>
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Form.Group style={{ marginTop: '30px' }}>
+                <Form.Control as="textarea" id="inputMessage" rows="4" placeholder="Your Message" />
+              </Form.Group>
+              <Button
+                type="submit"
+                style={{ backgroundColor: 'orange', paddingRight: '30px', marginTop: '10px' }}
+                className="btn btn-primary"
+              >
+                Send Message
+              </Button>
+            </Form>
+          </Container>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+export default PizzaHouse;
